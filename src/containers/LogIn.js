@@ -22,7 +22,6 @@ const LogIn =(props) =>{
         console.log(e.message)
       }
     }
-    // console.log(response)
     }
 
   const LogInContainer = styled.div`
@@ -41,8 +40,8 @@ const LogIn =(props) =>{
         callback={responseFacebook}
         icon="fa-facebook"
         render={renderProps => (
-              <LogInContainer onClick={renderProps.onClick}>FACEBOOK 登入</LogInContainer>
-            )}
+          <LogInContainer onClick={renderProps.onClick}>FACEBOOK 登入</LogInContainer>
+        )}
       />
     </>
   )
