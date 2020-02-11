@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
+import LogIn from '../src/containers/LogIn'
 
 function App() {
   return (
     <div>
-      init
+      <LogIn />
     </div>
   );
 }
