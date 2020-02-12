@@ -35,7 +35,7 @@ const LogIn =(props) =>{
   return (
     <>
       <FacebookLogin
-        appId="654202035317920"
+        appId="1394427937404636"
         fields="name,email,picture"
         callback={responseFacebook}
         icon="fa-facebook"

@@ -10,13 +10,13 @@ export const getResponseSuccess =(payload)=>({
 export const getFacebookData = (token) =>{
   console.log(token)
   return (dispatch) =>{
-    return API.post('/api/user/register', token)
+    return API.post('/api/user/facebook/login', token)
     .then(res=>{
       console.log(res)
       dispatch(getResponseSuccess(res.data))
     })
-    .catch(error=>{
-      console.log(error.message)
+    .catch((e) => {
+      console.log(e.message)
     })
   }
 }

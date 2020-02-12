@@ -8,7 +8,7 @@ import FaceIcon from '@material-ui/icons/Face';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Route,Link,NavLink } from "react-router-dom";
 import FoodList from './FoodList'
-import Map from './Map'
+import FoodMap from './FoodMap'
 import Cart from './Cart'
 import Account from './Account'
 
