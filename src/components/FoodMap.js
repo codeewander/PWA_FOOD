@@ -1,6 +1,6 @@
 import React from 'react'
 import {GoogleMap , withGoogleMap , withScriptjs } from 'react-google-maps'
-
+import SearchBar from './SearchBar'
 
 function FoodMap (){
   //get user's location
@@ -36,11 +36,7 @@ function FoodMap (){
   }
 
   return (
-    <div style={{width:'100vw',height:'100vh'}}>
-      <GoogleMap defaultZoom ={15} defaultCenter ={{lat : 22.99957
-, lng: 120.2128296
-}}/>
-    </div>
+      <GoogleMap defaultZoom ={15} defaultCenter ={{lat : 22.99957, lng: 120.2128296}}/>
   )
 }
 
