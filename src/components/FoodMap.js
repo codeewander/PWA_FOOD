@@ -1,8 +1,16 @@
 import React from 'react'
-import {GoogleMap , withGoogleMap , withScriptjs } from 'react-google-maps'
+import { Map, Marker,Popup, TileLayer} from 'react-leaflet'
 import SearchBar from './SearchBar'
+import { Icon } from "leaflet";
+import styled from 'styled-components'
+
+const WrappedMap = styled(Map)`
+  height: 100vh;
+  width: 100%;
+  `
 
 function FoodMap (){
+
   //get user's location
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(getPosition, positionError, {
@@ -36,10 +44,13 @@ function FoodMap (){
   }
 
   return (
-      <GoogleMap defaultZoom ={15} defaultCenter ={{lat : 22.99957, lng: 120.2128296}}/>
+    <WrappedMap center={[22.7136, 120.295]} zoom={15}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      />
+    </WrappedMap>
   )
 }
 
-const WrappedMap = withScriptjs(withGoogleMap(FoodMap))
-
-export default WrappedMap
+export default FoodMap

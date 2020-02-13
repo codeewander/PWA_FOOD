@@ -12,8 +12,6 @@ import FoodMap from './FoodMap'
 import Cart from './Cart'
 import Account from './Account'
 
-
-
 const useStyles = makeStyles({
   root: {
   position: 'fixed',

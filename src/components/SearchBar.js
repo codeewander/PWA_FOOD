@@ -9,7 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import FilterIcon from '@material-ui/icons/FilterList';
 import styled from 'styled-components'
 import { mainColor } from '../style/global';
-
+import TimeSlider from './TimeSlider'
 
 const useStyles = makeStyles(theme => ({
   root: {
