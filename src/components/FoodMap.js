@@ -7,6 +7,8 @@ import styled from 'styled-components'
 const WrappedMap = styled(Map)`
   height: 100vh;
   width: 100%;
+  position: absolute;
+  z-index:1;
   `
 
 function FoodMap (){

@@ -34,14 +34,13 @@ const useStyles = makeStyles(theme => ({
 const BarContainer = styled.div`
   background-color: ${mainColor};
   position: absolute;
-  z-index:1;
+  z-index:2;
   width:100vw;
   left: 50%;
   transform:translate(-50%,0)
 `
 export default function SearchBar() {
   const classes = useStyles();
-
   return (
     <BarContainer>
       <Paper component="form" className={classes.root}>
