@@ -7,6 +7,7 @@ import axios from 'axios'
 import { getRestaurantData }from '../utils/API.js'
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 
+
 const WrappedMap = styled(Map)`
   height: 100vh;
   width: 100%;

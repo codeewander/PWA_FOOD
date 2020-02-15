@@ -3,6 +3,7 @@ import InputRange from 'react-input-range';
 import Slider from '@material-ui/core/Slider';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components'
 
 const marks = [
   {
@@ -63,7 +64,7 @@ export default function TimeSlider() {
       onChange={handleChange}
       marks={marks}
       aria-labelledby="range-slider"
-      style={{width:'80%'}}
+      style={{width:'80%', color:'#499ba2'}}
     />
     </>
   )

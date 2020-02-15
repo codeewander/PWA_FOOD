@@ -9,7 +9,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Route,Link,NavLink } from "react-router-dom";
 import FoodList from './FoodList'
 import FoodMap from './FoodMap'
-import Cart from './Cart'
+import Cart from './Filter'
 import Account from './Account'
 
 const useStyles = makeStyles({

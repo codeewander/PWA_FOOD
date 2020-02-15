@@ -10,6 +10,7 @@ import FilterIcon from '@material-ui/icons/FilterList';
 import styled from 'styled-components'
 import { mainColor } from '../style/global';
 import TimeSlider from './TimeSlider'
+import Filter from './Filter'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,10 +38,16 @@ const BarContainer = styled.div`
   z-index:2;
   width:100vw;
   left: 50%;
-  transform:translate(-50%,0)
+  transform:translate(-50%,0);
 `
 export default function SearchBar() {
   const classes = useStyles();
+ const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
   return (
     <BarContainer>
       <Paper component="form" className={classes.root}>
@@ -53,10 +60,11 @@ export default function SearchBar() {
           <SearchIcon />
         </IconButton>
         <Divider className={classes.divider} orientation="vertical" />
-        <IconButton color="primary" className={classes.iconButton} aria-label="filterList">
+        <IconButton color="primary" className={classes.iconButton} aria-label="filterList" onClick={handleClickOpen}>
           <FilterIcon />
         </IconButton>
       </Paper>
+      <Filter open={open} setOpen={setOpen}/>
     </BarContainer>
   )
 }
