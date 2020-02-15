@@ -1,6 +1,8 @@
 import React from 'react'
 import InputRange from 'react-input-range';
 import Slider from '@material-ui/core/Slider';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
 
 const marks = [
   {
@@ -26,60 +28,33 @@ const marks = [
 ];
 
 export default function TimeSlider() {
-  const [timeRange, setTimeRange] = React.useState([20,100]);
-  // const [min ]
+  const [timeRange, setTimeRange] = React.useState([360,1080])
+  const [timeText,setTimeText] = React.useState(['06:00','18:00'])
 
   const handleChange = (event, newValue) => {
     setTimeRange(newValue);
+    const startTime = minuteToTime(newValue[0])
+    const endTime = minuteToTime(newValue[1])
+    const startTimeText =`${startTime.hours}:${startTime.minutes}`
+    const endTimeText = `${endTime.hours}:${endTime.minutes}`
+    setTimeText([startTimeText, endTimeText])
   };
-  function minuteToTime(timeRange){
-    let hours = Math.floor(timeRange / 60);
-    let minutes = timeRange - (hours * 60);
 
-    if (hours.length == 1) hours = '0' + hours;
-    if (minutes.length == 1) minutes = '0' + minutes;
-    if (minutes == 0) minutes = '00';
-
-    console.log(hours, minutes)
-    return {hours: hours, minutes: minutes};
-  }
-
-  function onChange(value){
-    let start = minuteToTime(value.min);
-    let end = minuteToTime(value.max);
-    let nStart = start.hours + ":" + start.minutes;
-    let nEnd = end.hours + ":" + end.minutes;
-    if(this.props.format == 12){
-      nStart += " " + start.am_pm;
-      nEnd += " " + end.am_pm;
+  const minuteToTime = (timePoint) => {
+    let hours = Math.floor(timePoint / 60);
+    let minutes = timePoint - (hours * 60);
+    if (hours < 10) {
+      hours = '0' + hours
+      console.log(hours,'hours')
     }
-    this.props.onChange({
-      start: nStart,
-      end: nEnd
-    });
-  }
-
-  function onChangeComplete(value){
-    let start = minuteToTime(value.min),
-    end = minuteToTime(value.max);
-    this.props.onChangeComplete({
-      start: start,
-      end: end
-    });
-  }
-
-  function onChangeStart(value){
-    let start = minuteToTime(value.min),
-    end = this.minuteToTime(value.max);
-    this.props.onChangeStart({
-      start: start,
-      end: end
-    });
+    if (minutes < 10 ) minutes = '0' + minutes;
+    if (minutes == 0) minutes = '00';
+    return {hours: hours, minutes: minutes};
   }
 
   return (
     <>
-    <p></p>
+    <Typography >{timeText[0]} - {timeText[1]}</Typography>
     <Slider
       value={timeRange}
       min={0}
@@ -88,6 +63,7 @@ export default function TimeSlider() {
       onChange={handleChange}
       marks={marks}
       aria-labelledby="range-slider"
+      style={{width:'80%'}}
     />
     </>
   )

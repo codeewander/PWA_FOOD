@@ -82,8 +82,8 @@ function valuetext(value) {
             />
           </ListItem>
           <Divider />
-          <ListItem>
-            <ListItemText primary="食物領取時間" />
+          <ListItem style={{flexDirection:'column'}}>
+            <ListItemText primary="食物領取時間" style={{display:'inline-block'}}/>
             <TimeSlider/>
             {/* <Slider
               value={value}
@@ -92,6 +92,10 @@ function valuetext(value) {
               aria-labelledby="range-slider"
               getAriaValueText={valuetext}
             /> */}
+          </ListItem>
+          <ListItem>
+            <ListItemText primary="餐廳類型"/>
+
           </ListItem>
         </List>
       </Dialog>
