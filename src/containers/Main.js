@@ -1,6 +1,6 @@
 import React from 'react'
 import Menu from '../components/Menu'
-import FoodList from '../components/FoodList'
+import FoodList from './FoodList'
 import WrappedMap from '../components/FoodMap'
 import Cart from '../components/Filter'
 import MapPage from './MapPage'

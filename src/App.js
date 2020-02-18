@@ -1,6 +1,6 @@
-import React from 'react'
-import LogIn from '../src/containers/LogIn'
-import Main from '../src/containers/Main'
+import React from "react";
+import LogIn from "../src/containers/LogIn";
+import Main from "../src/containers/Main";
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,7 +13,7 @@ function App() {
     <div>
       {/* <LogIn /> */}
       <Router>
-        <Main/>
+        <Main />
       </Router>
     </div>
   );

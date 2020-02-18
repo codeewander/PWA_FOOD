@@ -7,7 +7,7 @@ import RestaurantIcon from '@material-ui/icons/Restaurant';
 import FaceIcon from '@material-ui/icons/Face';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Route,Link,NavLink } from "react-router-dom";
-import FoodList from './FoodList'
+import FoodList from '../containers/FoodList'
 import FoodMap from './FoodMap'
 import Cart from './Filter'
 import Account from './Account'
