@@ -24,14 +24,11 @@ function FoodMap() {
 
   useEffect(() => {
     const setData = async () => {
+      getUserLocation();
       const data = await dispatch(getRestaurantData());
-      const makersInfo = data.map(item => {
-        const { id, east_longitude, north_latitude } = item;
-        const result = { id, east_longitude, north_latitude };
-        return result;
-      });
-      console.log(makersInfo);
-      await setMarkers(makersInfo);
+      const markersInfo = data.map(item => item);
+      console.log(markersInfo);
+      await setMarkers(markersInfo);
     };
     setData();
   }, []);
@@ -50,7 +47,7 @@ function FoodMap() {
   }
 
   return (
-    <WrappedMap center={userLocation} zoom={15} maxZoom={20}>
+    <WrappedMap center={userLocation} zoom={10} maxZoom={20}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -62,7 +59,14 @@ function FoodMap() {
             Number(item.east_longitude)
           ];
           console.log(position, item.id);
-          return <Marker position={position} key={item.id} />;
+          return (
+            <Marker position={position} key={item.id}>
+              <Popup>
+                <span>{item.name}</span>
+                <br />
+              </Popup>
+            </Marker>
+          );
         })}
       </MarkerClusterGroup>
     </WrappedMap>
